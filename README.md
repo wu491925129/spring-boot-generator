@@ -30,8 +30,8 @@ application-test为测试环境配置文件，
 * banner.txt为项目启动banner，可以自定义修改
 
 ## 快速开始
-1、在相应的配置文件中配置好数据库连接
-2、打开test/CodeGenerator.java，输入好数据库连接信息
-3、在main方法中输入连接的数据库中的表名后运行main方法，自动生成dao、model、service、web、mapper文件
-4、web为视图api文件
-5、项目默认访问路径为http://localhost:8888/test
+* 在相应的配置文件中配置好数据库连接
+* 打开test/CodeGenerator.java，输入好数据库连接信息
+* 在main方法中输入连接的数据库中的表名后运行main方法，自动生成dao、model、service、web、mapper文件
+* web为视图api文件
+* 项目默认访问路径为http://localhost:8888/test
