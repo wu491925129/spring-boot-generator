@@ -8,7 +8,7 @@
         </Console>
         <!-- 按天备份一个日志 -->
         <!-- fileName为生成的文件名，x为路径，也可以采用相对路径模式，filePattern为时间到达后产生新日志，旧日志的文件名 -->
-        <RollingFile name="TASK" fileName="/opt/logs/fastWord/logs.log"
+        <RollingFile name="TASK" fileName="/opt/logs/test/logs.log"
                      filePattern="/opt/logs/fastWord/logs_%d{yyyy-MM-dd}.log" >
             <!-- 输出格式 -->
             <PatternLayout pattern="%d %-5p %m%n" />

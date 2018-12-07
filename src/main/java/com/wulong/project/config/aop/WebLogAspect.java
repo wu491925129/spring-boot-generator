@@ -3,8 +3,6 @@ package com.wulong.project.config.aop;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.alibaba.fastjson.serializer.SerializerFeature;
-import com.wulong.project.model.SysLog;
-import com.wulong.project.service.SysLogService;
 import com.wulong.project.slog.SLog;
 import com.wulong.project.tool.IpUtils;
 import org.aspectj.lang.JoinPoint;
@@ -16,14 +14,15 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * AOP统一日志处理
@@ -39,8 +38,8 @@ public class WebLogAspect {
 
 	private static Long startTime;
 
-	@Autowired
-	private SysLogService sysLogService;
+	/*@Autowired
+	private SysLogService sysLogService;*/
 
 	/**
 	* @Description: 后面2个*表示controller包下所有类的所有方法，如果一个*会报错
@@ -108,7 +107,8 @@ public class WebLogAspect {
 		String methodName = signature.getName();
 		if (targetMethod.isAnnotationPresent(SLog.class)) {
 			SLog sLog = (SLog)targetMethod.getAnnotation(SLog.class);
-			SysLog sysLog = new SysLog();
+			// 含有日志表可以使用aop的方式全局插入日志
+			/*SysLog sysLog = new SysLog();
 			sysLog.setId(UUID.randomUUID().toString().replace("-",""));
 			sysLog.setIp(IpUtils.getIpAddr(request));
 			sysLog.setMsg(sLog.msg());
@@ -119,7 +119,7 @@ public class WebLogAspect {
 			// null也输出
 			sysLog.setResult(JSON.toJSONString(retVal,SerializerFeature.WriteMapNullValue));
 			sysLog.setOpTime(new Date());
-			sysLogService.save(sysLog);
+			sysLogService.save(sysLog);*/
 		}
 	}
 
