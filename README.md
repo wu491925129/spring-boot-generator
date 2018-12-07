@@ -4,7 +4,7 @@
 本项目为spring-boot脚手架，开箱即用
 
 ## 功能特性
-内置全局异常处理、拦截器、log4j2日志、aop日志管理、JWT Token签名
+内置全局异常处理、拦截器、log4j2日志、aop日志管理、PageHelper分页、JWT Token签名
 
 ## 环境依赖
 JKD1.8
