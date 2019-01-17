@@ -1,0 +1,33 @@
+# 开发环境配置
+server:
+  port: 8888
+  servlet:
+    context-path: /test
+
+spring:
+  application:
+    name: test
+  aop:
+    proxy-target-class: true
+  # Druid 配置
+  datasource:
+    name: test
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      filters: stat
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&autoReconnect=true
+      username: root
+      password: 123456
+      initial-size: 10
+      min-idle: 10
+      max-active: 300
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'X'
+      test-on-borrow: false
+      test-while-idle: true
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20

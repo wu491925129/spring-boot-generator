@@ -1,0 +1,23 @@
+# 指定生效的配置文件
+spring:
+  profiles:
+    active: dev
+  # 404交给异常处理器处理
+  mvc:
+    throw-exception-if-no-handler-found: true
+  resources:
+    add-mappings: false
+  mail:
+    default-encoding: utf-8
+    properties:
+      mail:
+        smtp:
+          ssl:
+            enable: true
+          socketFactory:
+            class: javax.net.ssl.SSLSocketFactory
+        debug: false
+
+
+# 通用配置
+# ################################
